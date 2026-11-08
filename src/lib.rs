@@ -1,0 +1,11 @@
+pub mod app;
+pub mod color;
+pub mod config;
+pub mod display;
+pub mod lyrics;
+pub mod media;
+pub mod mpris;
+pub mod renderer;
+pub mod ui;
+pub mod visualizer;
+pub mod wayland;

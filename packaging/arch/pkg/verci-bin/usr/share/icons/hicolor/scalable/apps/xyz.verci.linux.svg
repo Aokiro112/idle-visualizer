@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181528"/>
+      <stop offset="50%" stop-color="#0e0c1a"/>
+      <stop offset="100%" stop-color="#05040a"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="50%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
+    </linearGradient>
+    <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Squircle -->
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#bgGrad)" stroke="#3730a3" stroke-width="1.5"/>
+
+  <!-- Waveform / Sound Visualizer Curves -->
+  <path d="M 28 64 Q 40 40 48 64 T 68 64 T 88 64 T 100 64" fill="none" stroke="#4c1d95" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+  <path d="M 24 64 Q 38 24 50 64 T 74 64 T 96 64 T 104 64" fill="none" stroke="url(#glowGrad)" stroke-width="4.5" stroke-linecap="round" filter="url(#glowFilter)"/>
+
+  <!-- Center Lyric Focus Word Accent -->
+  <circle cx="64" cy="64" r="5" fill="#ffffff" filter="url(#glowFilter)"/>
+  <circle cx="64" cy="64" r="2.5" fill="#f43f5e"/>
+</svg>

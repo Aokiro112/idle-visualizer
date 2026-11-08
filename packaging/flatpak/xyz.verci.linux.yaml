@@ -1,0 +1,48 @@
+app-id: xyz.verci.linux
+runtime: org.gnome.Platform
+runtime-version: '46'
+sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
+command: verci
+
+finish-args:
+  # Wayland and X11 fallback
+  - --socket=wayland
+  - --socket=fallback-x11
+  # Hardware accelerated GPU rendering
+  - --device=dri
+  # Audio and MPRIS Media player discovery over D-Bus
+  - --talk-name=org.mpris.MediaPlayer2.*
+  # StatusNotifierItem system tray support
+  - --talk-name=org.kde.StatusNotifierWatcher
+  # Display sleep inhibitor assertions
+  - --talk-name=org.freedesktop.ScreenSaver
+  - --talk-name=org.freedesktop.PowerManagement
+  # Network access for LRCLIB synced lyric queries
+  - --share=network
+  - --share=ipc
+
+build-options:
+  append-path: /usr/lib/sdk/rust-stable/bin
+  env:
+    CARGO_HOME: /run/build/verci/cargo
+
+modules:
+  - name: gtk4-layer-shell
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://github.com/wmww/gtk4-layer-shell.git
+        tag: v1.0.2
+
+  - name: verci
+    buildsystem: simple
+    build-commands:
+      - cargo build --release --verbose
+      - install -Dm755 target/release/verci /app/bin/verci
+      - install -Dm644 packaging/xyz.verci.linux.desktop /app/share/applications/xyz.verci.linux.desktop
+      - install -Dm644 packaging/icons/xyz.verci.linux.svg /app/share/icons/hicolor/scalable/apps/xyz.verci.linux.svg
+    sources:
+      - type: dir
+        path: ../../

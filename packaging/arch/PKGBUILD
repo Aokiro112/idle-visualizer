@@ -1,0 +1,24 @@
+# Maintainer: Antigravity <antigravity@deepmind.google.com>
+pkgname=verci-bin
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="A lightweight Linux desktop application for synchronized, animated lyrics"
+arch=('x86_64')
+url="https://github.com/verci-linux/verci"
+license=('MIT' 'Apache-2.0')
+depends=(
+    'gtk4'
+    'libadwaita'
+    'gtk4-layer-shell'
+    'pango'
+    'cairo'
+    'mesa'
+)
+provides=('verci')
+conflicts=('verci')
+
+package() {
+    install -Dm755 "$startdir/../../target/release/verci" "$pkgdir/usr/bin/verci"
+    install -Dm644 "$startdir/../xyz.verci.linux.desktop" "$pkgdir/usr/share/applications/xyz.verci.linux.desktop"
+    install -Dm644 "$startdir/../icons/xyz.verci.linux.svg" "$pkgdir/usr/share/icons/hicolor/scalable/apps/xyz.verci.linux.svg"
+}

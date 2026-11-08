@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Verci
+GenericName=Lyric Visualizer
+Comment=Synchronized animated song lyrics desktop visualizer
+Exec=verci
+Icon=xyz.verci.linux
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;Player;
+StartupNotify=true
+X-GNOME-UsesNotifications=true
+Keywords=lyrics;synced;karaoke;music;spotify;mpris;visualizer;

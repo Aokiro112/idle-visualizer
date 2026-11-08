@@ -1,0 +1,42 @@
+[package]
+name = "verci"
+version = "0.1.0"
+edition = "2021"
+authors = ["Antigravity"]
+description = "A lightweight Linux desktop application for synchronized, animated lyrics"
+
+[dependencies]
+# GUI & Windowing
+gtk4 = { version = "0.11", features = ["v4_14"] }
+libadwaita = { version = "0.9" }
+gtk4-layer-shell = { version = "0.8" }
+cairo-rs = { version = "0.22", features = ["use_glib"] }
+pango = { version = "0.22" }
+pangocairo = { version = "0.22" }
+glib = { version = "0.22" }
+gl = "0.14"
+
+# D-Bus & Linux Desktop Integration
+zbus = { version = "5.19", features = ["tokio"] }
+ksni = { version = "0.3", features = ["tokio"] }
+
+# Async runtime & Networking
+tokio = { version = "1.40", features = ["full"] }
+async-trait = "0.1"
+async-channel = "2.3"
+reqwest = { version = "0.13", default-features = false, features = ["json", "rustls", "query"] }
+
+# Serialization & Utilities
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+libc = "0.2"
+regex = "1.10"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+dirs = "5.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+thiserror = "2.0"
+palette = "0.7"
+
+[dev-dependencies]
+tempfile = "3.12"

@@ -1,0 +1,18 @@
+# Rust and Cargo build artifacts
+/target/
+Cargo.lock
+
+# System and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs and temporary runtime files
+*.log
+nohup.out
+
+# Scratch and test media
+scratch/

@@ -1,0 +1,11 @@
+Package: verci
+Version: 0.1.0
+Section: sound
+Priority: optional
+Architecture: amd64
+Depends: libgtk-4-1, libadwaita-1-0, libpango-1.0-0, libcairo2
+Maintainer: Antigravity <antigravity@deepmind.google.com>
+Description: Synchronized animated song lyrics desktop visualizer
+ Verci is a lightweight Linux desktop application that detects currently
+ playing music via MPRIS and displays synchronized, animated lyrics in
+ cinematic 3D, Fisheye shader, and contextual visual symbol modes.
